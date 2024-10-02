@@ -2,13 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/FPT%202024/FA24%20-%20CN5/PRJ301_FA24/WorkShop_JavaApplication_PRJ301/Week4/Week4_Demo_MiniTest/src/java/test/main.java</file>
-            <file>file:/D:/FPT%202024/FA24%20-%20CN5/PRJ301_FA24/WorkShop_JavaApplication_PRJ301/Week4/Week4_Demo_MiniTest/src/java/dao/StudentDAOInterface.java</file>
-            <file>file:/D:/FPT%202024/FA24%20-%20CN5/PRJ301_FA24/WorkShop_JavaApplication_PRJ301/Week4/Week4_Demo_MiniTest/src/java/dbcontext/ConnectDB.java</file>
-            <file>file:/D:/FPT%202024/FA24%20-%20CN5/PRJ301_FA24/WorkShop_JavaApplication_PRJ301/Week4/Week4_Demo_MiniTest/src/java/dbcontext/DatabaseInfo.java</file>
-            <file>file:/D:/FPT%202024/FA24%20-%20CN5/PRJ301_FA24/WorkShop_JavaApplication_PRJ301/Week4/Week4_Demo_MiniTest/src/java/dao/StudentDAO.java</file>
-            <file>file:/D:/FPT%202024/FA24%20-%20CN5/PRJ301_FA24/WorkShop_JavaApplication_PRJ301/Week4/Week4_Demo_MiniTest/src/java/model/Student.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

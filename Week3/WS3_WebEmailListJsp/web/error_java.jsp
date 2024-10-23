@@ -12,6 +12,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Java Error!</h1>
+        <form action="EmailListServlet" method="post">
+            <input type="hidden" name="action" value="join"/>
+            <input type="submit" value="Return" />
+        </form>
     </body>
 </html>

@@ -10,11 +10,11 @@ import java.util.ArrayList;
  *
  * @author bebet
  */
-public class UserDB {
+public class UserList {
 
     ArrayList<User> userList = new ArrayList<>();
 
-    public UserDB() {
+    public UserList() {
     }
 
     public ArrayList<User> getUserList() {

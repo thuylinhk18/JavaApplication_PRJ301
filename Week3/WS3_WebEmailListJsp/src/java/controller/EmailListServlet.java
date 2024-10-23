@@ -4,14 +4,16 @@
  */
 package controller;
 
+import jakarta.servlet.ServletContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.User;
-import model.UserDB;
+import model.UserList;
 
 /**
  *
@@ -31,7 +33,7 @@ public class EmailListServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -57,7 +59,7 @@ public class EmailListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
 
     }
 
@@ -72,34 +74,31 @@ public class EmailListServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String url = "/index.jsp";
-// get current action 
+        String url = "index.jsp";
+
         String action = request.getParameter("action");
         if (action == null) {
-            action = "join";  // default action 
+            action = "join";
         }
-// perform action and set URL to appropriate page 
         if (action.equals("join")) {
-            url = "/index.jsp";    // the "join" page 
+            url = "index.jsp";
         } else if (action.equals("add")) {
-// get parameters from the request 
+
             String firstName = request.getParameter("firstName");
             String lastName = request.getParameter("lastName");
             String email = request.getParameter("email");
-// store data in User object 
             User user = new User(firstName, lastName, email);
-// validate the parameters 
-            UserDB userList = new UserDB();
-            url = "/thanks.jsp";
+            UserList userList = new UserList();
             userList.insertUser(user);
             request.setAttribute("userList", userList);
+            url = "thanks.jsp";
+
         }
-        getServletContext()
-                .getRequestDispatcher(url)
+        request.getRequestDispatcher(url)
                 .forward(request, response);
     }
 
-    /**
+    /**q
      * Returns a short description of the servlet.
      *
      * @return a String containing servlet description

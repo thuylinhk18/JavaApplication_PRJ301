@@ -4,15 +4,15 @@
  */
 package controller;
 
-import jakarta.servlet.ServletContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 import model.User;
-import model.UserList;
 
 /**
  *
@@ -87,8 +87,8 @@ public class EmailListServlet extends HttpServlet {
             String lastName = request.getParameter("lastName");
             String email = request.getParameter("email");
             User user = new User(firstName, lastName, email);
-            UserList userList = new UserList();
-            userList.insertUser(user);
+            List<User> userList = new ArrayList<>();
+            userList.add(user);
             request.setAttribute("userList", userList);
             url = "thanks.jsp";
 

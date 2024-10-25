@@ -19,4 +19,10 @@ public interface StudentDAOInterface {
     void removeStudent(String id);
 
     void addStudent(Student student);
+
+    void updateStudent(Student student);
+
+    Student searchStudentById(String id);
+
+    List<Student> searchStudentsByAnyInfo(String id, String firstName, String lastName, String email);
 }

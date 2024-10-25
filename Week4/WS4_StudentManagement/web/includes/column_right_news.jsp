@@ -6,5 +6,5 @@
     <h2><a href="catalog/product/8601" class="no_underline">
         Apple University News
     </a></h2>
-    <p class="news_item">Summer semester started on 13/05/2022.</p>
+    <p class="news_item">Hello summerCode.</p>
 </aside>

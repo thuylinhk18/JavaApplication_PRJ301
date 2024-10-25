@@ -22,20 +22,19 @@
         <table border="0">
             <tr >
                 <td>StudentID: </td>
-                <td> <input type="text" name="ID"></td>
+                <td> <input type="text" name="id"></td>
             </tr>
             <tr>
-                <td>Name: </td>
-                <td> <input type="text" name="name"></td>
+                <td>First Name: </td>
+                <td> <input type="text" name="firstName"></td>
             </tr>
             <tr>
-                <td>Gender: </td>
-                <td> <input type="radio" name="gender" value="male"> Male </td>
-                <td> <input type="radio" name="gender" value="female"> Female </td>
+                <td>Last Name:  </td>
+                <td> <input type="text" name="lastName"></td>
             </tr>
             <tr>
-                <td>DOB: </td>
-                <td> <input type="date" name="DOB"></td>
+                <td>Email:  </td>
+                <td> <input type="text" name="email"></td>
             </tr>
             <tr>
                 <td> <input type="submit" value="SEARCH" name="COMMAND"> </td>

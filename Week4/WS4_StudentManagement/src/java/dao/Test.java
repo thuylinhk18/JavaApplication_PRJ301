@@ -19,6 +19,6 @@ public class Test {
 //        dao.addStudent(student);
 //        dao.removeStudent("0");
 
-        System.out.println(dao.searchStudentById("1"));
+        System.out.println(dao.searchStudentsByAnyInfo("", "Linh", "", ""));
     }
 }

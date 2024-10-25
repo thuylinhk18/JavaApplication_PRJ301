@@ -89,6 +89,10 @@ public class StudentServlet extends HttpServlet {
                 beforeUpdateStudent(request, response);
             case "UPDATE" ->
                 updateStudent(request, response);
+            case "SEARCH" ->
+                searchStudent(request, response);
+            case "BACK" ->
+                request.getRequestDispatcher("search.jsp").forward(request, response);
         }
 
     }
@@ -157,6 +161,23 @@ public class StudentServlet extends HttpServlet {
         String email = request.getParameter("email");
         dao.updateStudent(new Student(id, firstName, lastName, email));
         listStudent(request, response);
+    }
+
+    protected void searchStudent(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
+        StudentDAO dao = new StudentDAO();
+        String id = request.getParameter("id");
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String email = request.getParameter("email");
+        List<Student> result = new ArrayList<>();
+        result = dao.searchStudentsByAnyInfo(id, firstName, lastName, email);
+        request.setAttribute("result", result);
+        request.getRequestDispatcher("search-result.jsp").forward(request, response);
     }
 
     /**

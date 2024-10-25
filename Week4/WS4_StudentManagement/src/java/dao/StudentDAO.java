@@ -197,4 +197,28 @@ public class StudentDAO implements StudentDAOInterface {
         return targetStudent;
     }
 
+    public List<Student> searchStudentsByAnyInfo(String id, String firstName, String lastName, String email) {
+        List<Student> result = new ArrayList<>();
+        for (Student student : getAllStudents()) {
+            boolean matches = true;
+            if (id != null && !id.isEmpty() && !student.getId().contains(id)) {
+                matches = false;
+            }
+            if (firstName != null && !firstName.isEmpty() && !student.getFirstName().contains(firstName)) {
+                matches = false;
+            }
+            if (lastName != null && !lastName.isEmpty() && !student.getLastName().contains(lastName)) {
+                matches = false;
+            }
+            if (email != null && !email.isEmpty() && !student.getEmail().contains(email)) {
+                matches = false;
+            }
+            if (matches) {
+                result.add(student);
+            }
+        }
+
+        return result;
+
+    }
 }

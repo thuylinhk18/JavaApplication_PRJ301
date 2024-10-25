@@ -84,7 +84,7 @@ public class StudentServlet extends HttpServlet {
             case "ADD" ->
                 addStudent(request, response);
             case "DELETE" ->
-                addStudent(request, response);
+                removeStudent(request, response);
             case "BEFORE_UPDATE" ->
                 beforeUpdateStudent(request, response);
             case "UPDATE" ->
@@ -115,6 +115,17 @@ public class StudentServlet extends HttpServlet {
         dao.addStudent(student);
         listStudent(request, response);
 
+    }
+
+    protected void removeStudent(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        StudentDAO dao = new StudentDAO();
+        String studentIDToRemove = request.getParameter("id");
+        dao.removeStudent(studentIDToRemove);
+        listStudent(request, response);
     }
 
     protected void beforeUpdateStudent(HttpServletRequest request, HttpServletResponse response)

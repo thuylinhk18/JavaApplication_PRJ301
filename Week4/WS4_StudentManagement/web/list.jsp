@@ -39,7 +39,7 @@
                         </form> 
                         <form action="StudentServlet" method="POST" style="display:inline;">
                             <input type="hidden" name="COMMAND" value="BEFORE_UPDATE">
-                            <input type="hidden" name="studentId" value="${student.id}">
+                            <input type="hidden" name="id" value="${student.id}">
                             <button type="submit">UPDATE</button>
                         </form>
                     </td>

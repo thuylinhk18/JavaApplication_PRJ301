@@ -80,13 +80,15 @@ public class StudentServlet extends HttpServlet {
         String command = request.getParameter("COMMAND");
         switch (command) {
             case "LIST" ->
-               listStudent(request, response);
+                listStudent(request, response);
             case "ADD" ->
                 addStudent(request, response);
             case "DELETE" ->
                 addStudent(request, response);
             case "BEFORE_UPDATE" ->
-                addStudent(request, response);
+                beforeUpdateStudent(request, response);
+            case "UPDATE" ->
+                updateStudent(request, response);
         }
 
     }
@@ -113,6 +115,33 @@ public class StudentServlet extends HttpServlet {
         dao.addStudent(student);
         listStudent(request, response);
 
+    }
+
+    protected void beforeUpdateStudent(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        StudentDAO dao = new StudentDAO();
+        String id = request.getParameter("id");
+        request.setAttribute("id", id);
+        request.getRequestDispatcher("update.jsp").forward(request, response);
+
+    }
+
+    protected void updateStudent(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        
+        StudentDAO dao = new StudentDAO();
+        String id = request.getParameter("id");
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String email = request.getParameter("email");
+        dao.updateStudent(new Student(id, firstName, lastName, email));
+        listStudent(request, response);
     }
 
     /**

@@ -124,4 +124,38 @@ public class StudentDAO implements StudentDAOInterface {
         }
     }
 
+    public void updateStudent(Student student) {
+        ConnectDB db = ConnectDB.getInstance();
+        Connection con = null;
+        PreparedStatement statement = null;
+        try {
+            con = db.openConnection();
+            if (con == null) {
+                System.err.println("Error: Unable to open database connection");
+                return;
+            }
+            String query = "UPDATE student SET firstName = ?, lastname= ?, email = ? WHERE id = ?";
+            statement = con.prepareStatement(query);
+            statement.setString(1, student.getFirstName());
+            statement.setString(2, student.getLastName());
+            statement.setString(3,student.getEmail());
+            statement.setString(4, student.getId());
+            statement.execute();
+            
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                statement.close();
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+
 }

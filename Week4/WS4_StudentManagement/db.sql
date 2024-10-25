@@ -14,3 +14,4 @@ select * from student;
 
 insert into student(id,firstName,lastname,email) values('DE181042''Trang','Pham','thuytrang@gmail.com')
 delete from student where id = 5
+UPDATE student SET firstName = 'Hi', lastname= 'Ho', email='hiho@gmail.com' WHERE id = '1'

@@ -6,7 +6,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"
         errorPage="error_java.jsp"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ page import="model.User" %>
+<%@ page import="model.UserList" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>

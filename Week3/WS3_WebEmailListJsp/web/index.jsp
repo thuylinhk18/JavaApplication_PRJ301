@@ -18,23 +18,23 @@
             <table>
                 <tr>
                     <td>Email</td>
-                    <td><input type="email" name="email" value="${user.email}" required/> </td>
+                    <td><input type="email" name="email" required/> </td>
                 </tr>
                 <tr>
                     <td>First Name</td>
-                    <td><input type="text" name="firstName" value="${user.firstName}" required/></td>
+                    <td><input type="text" name="firstName" required/></td>
                 </tr>
                 <tr>
                     <td>Last Name</td>
-                    <td><input type="text" name="lastName" value="${user.lastName}" required/></td>
+                    <td><input type="text" name="lastName"required/></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td><input type="submit" value="Join Now"/> </td>
                 </tr>
             </table>
-            
-            
+
+
         </form>
     </body>
 </html>

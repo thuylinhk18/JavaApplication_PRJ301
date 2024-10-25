@@ -4,32 +4,25 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author bebet
  */
-public class Student {
-    private int id;
+public class User implements Serializable {
+
     private String firstName;
     private String lastName;
-    private String email;
 
-    public Student() {
+    public User() {
+        firstName = "Linh";
+        lastName = "Phạm";
     }
 
-    public Student(int id, String firstName, String lastName, String email) {
-        this.id = id;
+    public User(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getFirstName() {
@@ -48,19 +41,9 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     @Override
     public String toString() {
-        return "Student{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + '}';
+        return "User{" + "firstName=" + firstName + ", lastName=" + lastName + '}';
     }
-    
-    
-    
+
 }

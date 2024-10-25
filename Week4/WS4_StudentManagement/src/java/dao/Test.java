@@ -17,7 +17,8 @@ public class Test {
         System.out.println(dao.getAllStudents());
 //        Student student = new Student("0", "hi", "ho", "hihihoho");
 //        dao.addStudent(student);
-        dao.removeStudent("0");
-        System.out.println(dao.getAllStudents());
+//        dao.removeStudent("0");
+
+        System.out.println(dao.searchStudentById("1"));
     }
 }

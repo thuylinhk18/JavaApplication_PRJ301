@@ -138,10 +138,9 @@ public class StudentDAO implements StudentDAOInterface {
             statement = con.prepareStatement(query);
             statement.setString(1, student.getFirstName());
             statement.setString(2, student.getLastName());
-            statement.setString(3,student.getEmail());
+            statement.setString(3, student.getEmail());
             statement.setString(4, student.getId());
             statement.execute();
-            
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -156,6 +155,46 @@ public class StudentDAO implements StudentDAOInterface {
             }
         }
     }
-    
+
+    public Student searchStudentById(String id) {
+        ConnectDB db = ConnectDB.getInstance();
+        Connection con = null;
+        PreparedStatement statement = null;
+        ResultSet result = null;
+        Student targetStudent = new Student();
+        try {
+            con = db.openConnection();
+            if (con == null) {
+                System.err.println("Error: Unable to open database connection");
+                return null;
+            }
+            String query = "select firstName,lastName,email from student where id=?";
+            statement = con.prepareStatement(query);
+            statement.setString(1, id);
+            result = statement.executeQuery();
+            if (result.next()) {
+                targetStudent.setId(id);
+                targetStudent.setFirstName(result.getString(1));
+                targetStudent.setLastName(result.getString(2));
+                targetStudent.setEmail(result.getString(3));
+            } else {
+                System.out.println("No student found with ID: " + id);
+                return null;
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                result.close();;
+                statement.close();
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return targetStudent;
+    }
 
 }

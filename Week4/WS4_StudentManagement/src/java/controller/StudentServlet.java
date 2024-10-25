@@ -125,6 +125,10 @@ public class StudentServlet extends HttpServlet {
         StudentDAO dao = new StudentDAO();
         String id = request.getParameter("id");
         request.setAttribute("id", id);
+        Student studentToUpdate = dao.searchStudentById(id);
+        request.setAttribute("firstName", studentToUpdate.getFirstName());
+        request.setAttribute("lastName", studentToUpdate.getLastName());
+        request.setAttribute("email", studentToUpdate.getEmail());
         request.getRequestDispatcher("update.jsp").forward(request, response);
 
     }
@@ -134,7 +138,7 @@ public class StudentServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
-        
+
         StudentDAO dao = new StudentDAO();
         String id = request.getParameter("id");
         String firstName = request.getParameter("firstName");

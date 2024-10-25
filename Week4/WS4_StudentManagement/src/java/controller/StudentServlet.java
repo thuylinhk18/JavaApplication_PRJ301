@@ -79,8 +79,8 @@ public class StudentServlet extends HttpServlet {
 
         String command = request.getParameter("COMMAND");
         switch (command) {
-            case "Add" ->
-                addStudent(request, response);
+            case "LIST" ->
+               listStudent(request, response);
             case "ADD" ->
                 addStudent(request, response);
             case "DELETE" ->
